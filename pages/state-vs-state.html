@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#11130f">
+    <meta name="description" content="Calculate State vs State troop training points.">
+    <title>State vs State Troop Calculator | Survival HQ</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../calculator.js" defer></script>
+  </head>
+  <body class="calculator calculator--points calculator--svs">
+    <main class="calculator-shell">
+      <header class="calculator-top">
+        <a class="brand" href="../index.html" aria-label="Survival HQ home">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          <span class="brand-name">SURVIVAL <span>HQ</span></span>
+        </a>
+        <a class="back-link" href="../index.html">← Back to events</a>
+      </header>
+      <section class="calculator-content calculator-content--wide" aria-labelledby="page-title">
+        <p class="eyebrow"><span></span> EVENT CALCULATOR // 01</p>
+        <h1 class="page-title" id="page-title">State <span>vs</span> State</h1>
+        <p class="calculator-intro">Estimate the points from your troop training speedups. Select one troop level and enter your batch and time details.</p>
+
+        <div class="points-layout">
+          <form class="points-form" id="training-calculator" novalidate>
+            <section class="input-card" aria-labelledby="troop-setup-title">
+              <div class="section-heading">
+                <span class="section-number">01</span>
+                <div class="section-heading-copy">
+                  <h2 id="troop-setup-title">Troop setup</h2>
+                  <p>Choose the troop tier and the size of each training batch.</p>
+                </div>
+                <button class="mode-toggle" id="mode-toggle" type="button" aria-pressed="false">Upgrade Troops</button>
+              </div>
+
+              <div class="form-fields form-fields--setup mode-panel" id="training-mode-panel">
+                <div class="field">
+                  <label for="troop-level">Troop level</label>
+                  <select id="troop-level" name="troopLevel" required>
+                    <option value="1" data-points="3" selected>Level 1 — 3 points / troop</option>
+                    <option value="2" data-points="4">Level 2 — 4 points / troop</option>
+                    <option value="3" data-points="5">Level 3 — 5 points / troop</option>
+                    <option value="4" data-points="8">Level 4 — 8 points / troop</option>
+                    <option value="5" data-points="12">Level 5 — 12 points / troop</option>
+                    <option value="6" data-points="18">Level 6 — 18 points / troop</option>
+                    <option value="7" data-points="25">Level 7 — 25 points / troop</option>
+                    <option value="8" data-points="35">Level 8 — 35 points / troop</option>
+                    <option value="9" data-points="45">Level 9 — 45 points / troop</option>
+                    <option value="10" data-points="60">Level 10 — 60 points / troop</option>
+                    <option value="11" data-points="75">Level 11 — 75 points / troop</option>
+                    <option value="12" data-points="90">Level 12 — 90 points / troop</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="troops-per-batch">Troops per training batch</label>
+                  <input id="troops-per-batch" name="troopsPerBatch" type="number" min="1" step="1" inputmode="numeric" placeholder="e.g. 1,000" required>
+                  <span class="field-hint">Troops trained each time a batch completes.</span>
+                </div>
+              </div>
+              <div class="form-fields form-fields--setup mode-panel" id="upgrade-mode-panel" hidden>
+                <div class="field">
+                  <label for="upgrade-from">Upgrade from</label>
+                  <select id="upgrade-from" name="upgradeFrom" disabled></select>
+                </div>
+                <div class="field">
+                  <label for="upgrade-to">Upgrade to</label>
+                  <select id="upgrade-to" name="upgradeTo" disabled></select>
+                </div>
+                <div class="field">
+                  <label for="upgrade-troops-per-batch">Troops per upgrade batch</label>
+                  <input id="upgrade-troops-per-batch" name="upgradeTroopsPerBatch" type="number" min="1" step="1" inputmode="numeric" placeholder="e.g. 1,000" disabled required>
+                  <span class="field-hint">Troops upgraded each time a batch completes.</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="input-card" aria-labelledby="training-time-title">
+              <div class="section-heading">
+                <span class="section-number">02</span>
+                <div>
+                  <h2 id="training-time-title">Training time per batch</h2>
+                  <p>Enter how long one full batch takes to train.</p>
+                </div>
+              </div>
+              <div class="duration-fields" role="group" aria-label="Training time per batch">
+                <div class="field field--time">
+                  <label for="training-days">Days</label>
+                  <input id="training-days" name="trainingDays" type="number" min="0" step="1" inputmode="numeric" value="0" required>
+                </div>
+                <div class="field field--time">
+                  <label for="training-hours">Hours</label>
+                  <input id="training-hours" name="trainingHours" type="number" min="0" max="23" step="1" inputmode="numeric" value="0" required>
+                </div>
+                <div class="field field--time">
+                  <label for="training-minutes">Minutes</label>
+                  <input id="training-minutes" name="trainingMinutes" type="number" min="0" max="59" step="1" inputmode="numeric" value="0" required>
+                </div>
+                <div class="field field--time">
+                  <label for="training-seconds">Seconds</label>
+                  <input id="training-seconds" name="trainingSeconds" type="number" min="0" max="59" step="1" inputmode="numeric" value="0" required>
+                </div>
+              </div>
+            </section>
+
+            <section class="input-card" aria-labelledby="speedups-title">
+              <div class="section-heading">
+                <span class="section-number">03</span>
+                <div>
+                  <h2 id="speedups-title">Available speedups</h2>
+                  <p>Enter your total training speedup time.</p>
+                </div>
+              </div>
+              <div class="duration-fields" role="group" aria-label="Available speedups">
+                <div class="field field--time">
+                  <label for="speedup-days">Days</label>
+                  <input id="speedup-days" name="speedupDays" type="number" min="0" step="1" inputmode="numeric" value="0" required>
+                </div>
+                <div class="field field--time">
+                  <label for="speedup-hours">Hours</label>
+                  <input id="speedup-hours" name="speedupHours" type="number" min="0" max="23" step="1" inputmode="numeric" value="0" required>
+                </div>
+                <div class="field field--time">
+                  <label for="speedup-minutes">Minutes</label>
+                  <input id="speedup-minutes" name="speedupMinutes" type="number" min="0" max="59" step="1" inputmode="numeric" value="0" required>
+                </div>
+                <div class="field field--time">
+                  <label for="speedup-seconds">Seconds</label>
+                  <input id="speedup-seconds" name="speedupSeconds" type="number" min="0" max="59" step="1" inputmode="numeric" value="0" required>
+                </div>
+              </div>
+            </section>
+
+            <p class="form-error" id="form-error" role="alert" hidden></p>
+            <div class="form-actions">
+              <button class="calculate-button" type="submit">Calculate points <span aria-hidden="true">↗</span></button>
+              <button class="reset-button" type="reset">Reset</button>
+            </div>
+            <p class="form-note">Only fully completed training batches are counted.</p>
+          </form>
+
+          <section class="results-card" id="results" aria-labelledby="results-title" aria-live="polite" hidden>
+            <div class="results-heading">
+              <span class="results-kicker">TRAINING ESTIMATE</span>
+              <h2 id="results-title">Your results</h2>
+              <p>Based on your selected level and available speedups.</p>
+            </div>
+            <div class="grand-total">
+              <span>GRAND TOTAL POINTS</span>
+              <output id="total-points" for="troop-level troops-per-batch">0</output>
+              <span class="total-unit">POINTS</span>
+            </div>
+            <dl class="result-list">
+              <div><dt id="result-level-label">Selected troop level</dt><dd id="result-level">—</dd></div>
+              <div id="result-to-level-row" hidden><dt>Destination troop level</dt><dd id="result-to-level">—</dd></div>
+              <div><dt id="result-points-label">Points per troop</dt><dd id="result-points-per-troop">—</dd></div>
+              <div><dt id="result-batch-label">Troops per batch</dt><dd id="result-batch-size">—</dd></div>
+              <div><dt id="result-batches-label">Completed batches</dt><dd id="result-batches">—</dd></div>
+              <div><dt id="result-troops-label">Total troops trained</dt><dd id="result-troops">—</dd></div>
+              <div class="result-list__remaining"><dt>Remaining speedups</dt><dd id="result-remaining">—</dd></div>
+            </dl>
+            <p class="result-footnote">Points shown are for this troop level only.</p>
+          </section>
+
+          <aside class="results-placeholder" id="results-placeholder">
+            <span class="placeholder-icon" aria-hidden="true">✦</span>
+            <h2>Your estimate<br>starts here.</h2>
+            <p>Fill in your troop and time details, then calculate to see your completed batches and total event points.</p>
+            <div class="placeholder-rule"><span></span></div>
+            <span class="placeholder-label">STATE VS STATE // TRAINING</span>
+          </aside>
+        </div>
+      </section>
+      <footer class="calculator-footer">SURVIVAL HQ <span aria-hidden="true">/</span> STATE OF SURVIVAL</footer>
+    </main>
+  </body>
+</html>

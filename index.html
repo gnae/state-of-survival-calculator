@@ -1,75 +1,60 @@
-
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>State of Survival Calculator</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10120f">
+    <meta name="description" content="A home for State of Survival troop training calculators.">
+    <title>State of Survival Calculators</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="home">
+    <main class="landing">
+      <header class="brand">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span class="brand-name">SURVIVAL <span>HQ</span></span>
+      </header>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+      <section class="welcome" aria-labelledby="page-title">
+        <p class="eyebrow"><span></span> FIELD OPERATIONS // CALCULATORS</p>
+        <h1 id="page-title">Plan your next <em>victory.</em></h1>
+        <p class="welcome-copy">Choose an event to start planning your troop training points.</p>
 
-        body {
-            margin: 0;
-            background: #10131a;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
+        <nav class="event-grid" aria-label="Choose a calculator">
+          <a class="event-card event-card--state" href="pages/state-vs-state.html">
+            <span class="card-index">01 <span class="card-rule"></span> EVENT CALCULATOR</span>
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none">
+                <path d="M32 7 54 19.5v25L32 57 10 44.5v-25L32 7Z" />
+                <path d="m10.5 20 21.5 12 21.5-12M32 32v24M21 13.5l22 12v12L21 25.5v-12Z" />
+                <path d="m21 38 11 6 11-6" />
+              </svg>
+            </span>
+            <span class="card-title">State <span>vs</span> State</span>
+            <span class="card-description">Prepare for battle. Make every training point count.</span>
+            <span class="card-action">OPEN CALCULATOR <span aria-hidden="true">↗</span></span>
+          </a>
 
-        header {
-            background: #191f2b;
-            padding: 25px;
-            text-align: center;
-            border-bottom: 1px solid #30394a;
-        }
+          <a class="event-card event-card--sotf" href="pages/survival-of-the-fittest.html">
+            <span class="card-index">02 <span class="card-rule"></span> EVENT CALCULATOR</span>
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none">
+                <path d="M32 7 37.5 23 54 16.5 47.5 33 57 43 40 42.5 32 57l-8-14.5L7 43l9.5-10-6.5-16.5L26.5 23 32 7Z" />
+                <path d="m24 33 5 5 11-12" />
+              </svg>
+            </span>
+            <span class="card-title">Survival of <span>the</span> Fittest</span>
+            <span class="card-description">Build your strategy. Get ready to outlast them all.</span>
+            <span class="card-action">OPEN CALCULATOR <span aria-hidden="true">↗</span></span>
+          </a>
+        </nav>
+      </section>
 
-        h1 {
-            margin: 0;
-            color: #62a5ff;
-        }
-
-        main {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .card {
-            background: #191f2b;
-            border: 1px solid #30394a;
-            border-radius: 12px;
-            padding: 30px;
-            margin-top: 25px;
-        }
-
-        .status {
-            color: #8d99aa;
-        }
-    </style>
-</head>
-
-<body>
-
-    <header>
-        <h1>State of Survival</h1>
-        <p>Gaming Calculators</p>
-    </header>
-
-    <main>
-        <h2>Welcome!</h2>
-        <p class="status">
-            Your troop training calculator is coming soon.
-        </p>
-
-        <div class="card">
-            <h2>Troop Training Calculator</h2>
-            <p>Under development...</p>
-        </div>
+      <footer class="landing-footer">
+        <span>STRATEGY STARTS HERE</span>
+        <span class="footer-divider" aria-hidden="true"></span>
+        <span>STATE OF SURVIVAL</span>
+      </footer>
     </main>
-
-</body>
+  </body>
 </html>
