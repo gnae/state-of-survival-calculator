@@ -1049,6 +1049,10 @@ body.calculator--sotf {
     grid-template-columns: 1fr;
   }
 
+  #upgrade-mode-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .input-card,
   .results-card,
   .results-placeholder {

@@ -59,6 +59,19 @@
     });
     modeToggle.textContent = upgradeMode ? "Training Mode" : "Upgrade Troops";
     modeToggle.setAttribute("aria-pressed", String(upgradeMode));
+    document.getElementById("setup-description").textContent = upgradeMode
+      ? "Choose the starting and destination troop tiers, then set the size of each upgrade batch."
+      : "Choose the troop tier and the size of each training batch.";
+    document.getElementById("results-kicker").textContent = upgradeMode ? "UPGRADE ESTIMATE" : "TRAINING ESTIMATE";
+    document.getElementById("results-summary").textContent = upgradeMode
+      ? "Based on your selected upgrade levels and available speedups."
+      : "Based on your selected level and available speedups.";
+    document.getElementById("result-footnote").textContent = upgradeMode
+      ? "Upgrade points are the difference between the selected troop levels."
+      : "Points shown are for this troop level only.";
+    document.querySelector(".form-note").textContent = upgradeMode
+      ? "Only fully completed upgrade batches are counted."
+      : "Only fully completed training batches are counted.";
     document.getElementById("result-level-label").textContent = upgradeMode ? "Original troop level" : "Selected troop level";
     document.getElementById("result-to-level-row").hidden = !upgradeMode;
     document.getElementById("result-points-label").textContent = upgradeMode ? "Points gained per upgraded troop" : "Points per troop";
@@ -170,7 +183,8 @@
       }
 
       const pointsPerTroop = upgradeMode ? destinationPoints - sourcePoints : destinationPoints;
-      if (!Number.isSafeInteger(pointsPerTroop) || pointsPerTroop < 0) {
+      if (!Number.isSafeInteger(sourcePoints) || !Number.isSafeInteger(destinationPoints) ||
+          !Number.isSafeInteger(pointsPerTroop) || pointsPerTroop < 0) {
         const field = upgradeMode ? upgradeTo : levelSelect;
         throw { field, message: "Points for the selected troop level could not be calculated." };
       }

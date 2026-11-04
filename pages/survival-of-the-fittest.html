@@ -30,7 +30,7 @@
                 <span class="section-number">01</span>
                 <div class="section-heading-copy">
                   <h2 id="troop-setup-title">Troop setup</h2>
-                  <p>Choose the troop tier and the size of each training batch.</p>
+                  <p id="setup-description">Choose the troop tier and the size of each training batch.</p>
                 </div>
                 <button class="mode-toggle" id="mode-toggle" type="button" aria-pressed="false">Upgrade Troops</button>
               </div>
@@ -142,9 +142,9 @@
 
           <section class="results-card" id="results" aria-labelledby="results-title" aria-live="polite" hidden>
             <div class="results-heading">
-              <span class="results-kicker">TRAINING ESTIMATE</span>
+              <span class="results-kicker" id="results-kicker">TRAINING ESTIMATE</span>
               <h2 id="results-title">Your results</h2>
-              <p>Based on your selected level and available speedups.</p>
+              <p id="results-summary">Based on your selected level and available speedups.</p>
             </div>
             <div class="grand-total">
               <span>GRAND TOTAL POINTS</span>
@@ -160,7 +160,7 @@
               <div><dt id="result-troops-label">Total troops trained</dt><dd id="result-troops">—</dd></div>
               <div class="result-list__remaining"><dt>Remaining speedups</dt><dd id="result-remaining">—</dd></div>
             </dl>
-            <p class="result-footnote">Points shown are for this troop level only.</p>
+            <p class="result-footnote" id="result-footnote">Points shown are for this troop level only.</p>
           </section>
 
           <aside class="results-placeholder" id="results-placeholder">
